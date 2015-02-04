@@ -1,0 +1,5 @@
+.navbar-inverse .navbar-brand.active,
+.navbar-inverse .navbar-nav .active {
+  color: #fff;
+  background-color: #080808;
+}
