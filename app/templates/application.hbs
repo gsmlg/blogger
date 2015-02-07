@@ -1,3 +1,45 @@
-<h1 id="title">TODO DEMO <small>Powered by ember-cli</small></h1>
+<header id="ember-cli-todomvc">
+    <h1>Todo MVC <small>By Ember CLI</small></h1>
+</header>
 
-{{outlet}}
+<section id="todoapp">
+    <header id="header">
+        <h1>todos</h1>
+        {{input value=newTodo action="createTodo" id="new-todo" placeholder="What needs to be done?" autofocus="autofocus"}}
+    </header>
+
+    <section id="main">
+        {{outlet}}
+    </section>
+
+    <footer id="footer">
+        <span id="todo-count">
+            <strong>{{remaining.length}}</strong> {{pluralize 'item' remaining.length}} left
+        </span>
+        <ul id="filters">
+            <li class="all">
+                {{#link-to 'todos.index' activeClass="selected"}}All{{/link-to}}
+            </li>
+            <li class="active">
+                {{#link-to 'todos.active' activeClass="selected"}}Active{{/link-to}}
+            </li>
+            <li class="completed">
+                {{#link-to 'todos.completed' activeClass="selected"}}Completed{{/link-to}}
+            </li>
+        </ul>
+        {{#if completed.length}}
+        <button id="clear-completed" {{action "clearCompleted"}}>
+            Clear completed ({{completed.length}})
+        </button>`
+        {{/if}}
+    </footer>
+</section>
+
+<footer id="info">
+    <p>Double-click to edit a todo</p>
+    <p>
+        Created by <a href="http://github.com/gsmlg">GSMLG</a>
+        using <a href="http://www.ember-cli.com">Ember CLI</a>
+    </p>
+    <p>Further variations on the Ember.js app are also <a href="https://github.com/emberjs/ember.js">available</a>.</p>
+</footer>

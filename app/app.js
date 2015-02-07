@@ -14,3 +14,7 @@ var App = Ember.Application.extend({
 loadInitializers(App, config.modulePrefix);
 
 export default App;
+
+Ember.Handlebars.registerBoundHelper('pluralize', function(word, num){
+  return num > 1 ? Ember.Inflector.inflector.pluralize(word) : word;
+});
